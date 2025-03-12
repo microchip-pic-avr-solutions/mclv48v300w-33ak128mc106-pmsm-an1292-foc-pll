@@ -2,9 +2,9 @@
 /**
  * @file flux_control.c
  *
- * @brief This module implements equation based field weakening of PMSM.
+ * @brief This module implements equation based flux weakening of PMSM.
  *
- * Component: FIELD WEAKENING
+ * Component: FLUX WEAKENING
  *
  */
 // </editor-fold>
@@ -75,9 +75,9 @@ static float MCAPP_FeedBackFluxWeakening(MCAPP_FLUX_WEAKENING_VOLT_FB_T *);
 /**
 * <B> Function: MCAPP_FluxWeakeningControlInit(MCAPP_ID_REFERENCE_T *) </B>
 *
-* @brief Function initializes the Field Weakening Parameters.
+* @brief Function initializes the Flux Weakening Parameters.
 *        
-* @param Pointer to the data structure containing field weakening parameters
+* @param Pointer to the data structure containing flux weakening parameters
 * @return none.
  * 
 * @example
@@ -93,9 +93,9 @@ void MCAPP_FluxWeakeningControlInit(MCAPP_ID_REFERENCE_T *pIdRefGen)
 /**
 * <B> Function: MCAPP_FluxWeakeningControl(MCAPP_ID_REFERENCE_T *) </B>
 *
-* @brief Function to select the type of field weakening
+* @brief Function to select the type of flux weakening
 *        
-* @param Pointer to the data structure containing field weakening parameters
+* @param Pointer to the data structure containing flux weakening parameters
 * @return none.
  * 
 * @example
@@ -106,14 +106,18 @@ void MCAPP_FluxWeakeningControl(MCAPP_ID_REFERENCE_T *pIdRefGen)
 {
     float idRefSquared, iqSquaredLimit;
     
-    if(pIdRefGen->type == 1)
+    if(pIdRefGen->variant == 1)
     {
         pIdRefGen->idRef = MCAPP_FeedBackFluxWeakening(&pIdRefGen->feedBackFW);
     }
-    else
+    else if(pIdRefGen->variant == 2)
     {
         pIdRefGen->idRef = MCAPP_FeedForwardFluxWeakening(&pIdRefGen->feedForwardFW);
-    } 
+    }
+    else
+    {
+        pIdRefGen->idRef = 0.0;
+    }
     
     /* Dynamic limiting for Q axis current */ 
     idRefSquared  = pIdRefGen->idRef * pIdRefGen->idRef ;
@@ -126,9 +130,9 @@ void MCAPP_FluxWeakeningControl(MCAPP_ID_REFERENCE_T *pIdRefGen)
 /**
 * <B> Function: MCAPP_FeedForwardFluxWeakeningInit(MCAPP_FLUX_WEAKENING_FF_T *) </B>
 *
-* @brief Function initializes the Feed Forward Field Weakening Parameters.
+* @brief Function initializes the Feed Forward flux Weakening Parameters.
 *        
-* @param Pointer to the data structure containing field weakening parameters
+* @param Pointer to the data structure containing flux weakening parameters
 * @return none.
  * 
 * @example
@@ -143,9 +147,9 @@ static void MCAPP_FeedForwardFluxWeakeningInit(MCAPP_FLUX_WEAKENING_FF_T *pFdwea
 /**
 * <B> Function: MCAPP_FeedBackFluxWeakeningInit(MCAPP_FLUX_WEAKENING_VOLT_FB_T *) </B>
 *
-* @brief Function initializes the Voltage Feedback based Field Weakening Parameters.
+* @brief Function initializes the Voltage Feedback based flux Weakening Parameters.
 *        
-* @param Pointer to the data structure containing field weakening parameters
+* @param Pointer to the data structure containing flux weakening parameters
 * @return none.
  * 
 * @example
@@ -160,9 +164,9 @@ static void MCAPP_FeedBackFluxWeakeningInit(MCAPP_FLUX_WEAKENING_VOLT_FB_T *pFdW
 /**
 * <B> Function: MCAPP_FeedForwardFluxWeakening(MCAPP_FLUX_WEAKENING_FF_T * ) </B>
 *
-* @brief Function implements feed-forward field weakening algorithm.
+* @brief Function implements feed-forward flux weakening algorithm.
 *        
-* @param Pointer to the data structure containing field weakening parameters
+* @param Pointer to the data structure containing flux weakening parameters
 * @return d-axis current reference corresponding to the motor speed.
 * 
 * @example
@@ -207,9 +211,9 @@ static float  MCAPP_FeedForwardFluxWeakening(MCAPP_FLUX_WEAKENING_FF_T *pFdWeak)
 /**
 * <B> Function: MCAPP_FeedBackFluxWeakening(MCAPP_FLUX_WEAKENING_FF_T * ) </B>
 *
-* @brief Function implements voltage feedback based field weakening algorithm.
+* @brief Function implements voltage feedback based flux weakening algorithm.
 *        
-* @param Pointer to the data structure containing field weakening parameters
+* @param Pointer to the data structure containing flux weakening parameters
 * @return d-axis current reference corresponding to the motor speed.
 * 
 * @example

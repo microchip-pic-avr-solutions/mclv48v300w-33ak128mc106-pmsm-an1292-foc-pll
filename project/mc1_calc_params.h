@@ -96,7 +96,7 @@ extern "C" {
  * considered 200% to compensate dead time and circuit resistance*/
 #define LOCKING_VOLTAGE             (float)((LOCK_CURRENT * MOTOR_PER_PHASE_RESISTANCE) * 2.0)
        
-/* Field Weakening Parameters */
+/* Flux Weakening Parameters */
 /* Effective voltage considered for Id reference calculation */
 #define EFFECTIVE_VOLATGE_FW        (float)(VMAX_CLOSEDLOOP_CONTROL * FW_VOLATGE_MARGIN_FACTOR )
 /*Id reference calculation starts at this speed*/

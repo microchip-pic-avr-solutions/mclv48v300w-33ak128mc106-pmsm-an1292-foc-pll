@@ -70,15 +70,15 @@ extern "C" {
 #undef OPEN_LOOP_FUNCTIONING
 /* Define INTERNAL_OPAMP_CONFIG to use internal op-amp outputs(default), 
  * Undefine INTERNAL_OPAMP_CONFIG to use external op-amp outputs from the 
- * development board;Ensure the jumper resistors are modified on DIM  */
+   development board;Ensure the jumper resistors are modified on DIM  */
 #define INTERNAL_OPAMP_CONFIG
 /* Define SINGLE_SHUNT for single shunt current measurement scheme(IBUS)
- * Undefine SINGLE_SHUNT for dual shunt current measurement scheme(IA and IB)*/
-#undef SINGLE_SHUNT
-/* Define FLUX_WEAKENING_TYPE for voltage feedback based Flux weakening control, 
- * Undefine FLUX_WEAKENING_TYPE for Id feed-forward Flux weakening control
- * (computed from steady state equation of the PMSM)  */    
-#define FLUX_WEAKENING_TYPE
+ * Undefine SINGLE_SHUNT for dual shunt current measurement scheme(IA and IB) */
+#define SINGLE_SHUNT
+/*Flux Weakening Variant : 0 = Disable Flux Weakening
+                        1 = PI Controller for limiting voltage circle using voltage feedback
+                        2 = Reference speed feed-forward based on PMSM steady state equation */   
+#define FLUX_WEAKENING_VARIANT  1
 /*Motor Selection : 1 = Hurst DMA0204024B101(AC300022: Hurst300 or Long Hurst)
                     2 = Hurst DMB0224C10002(AC300020: Hurst075 or Short Hurst)
                     3 = Leadshine 24V Servo Motor ELVM6020V24FH-B25-HD (200W)*/

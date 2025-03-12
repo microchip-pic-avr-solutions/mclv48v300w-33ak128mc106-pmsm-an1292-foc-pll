@@ -74,9 +74,9 @@ extern "C" {
 #define MOTOR_BEMF_CONSTANT_MECH                        6.7316f
 /* Speed for Open Loop to Closed Loop Transition (unit : RPM)*/
 #define MINIMUM_SPEED_RPM                               500.0f
-/* Nominal Speed without Field Weakening (unit : RPM)*/
+/* Nominal Speed without Flux Weakening (unit : RPM)*/
 #define NOMINAL_SPEED_RPM                               2500.0f
-/* Maximum Speed with Field Weakening (unit : RPM)*/
+/* Maximum Speed with Flux Weakening (unit : RPM)*/
 #define MAXIMUM_SPEED_RPM                               3500.0f
 /* Motor Rated Phase Current in RMS (unit : amps) */
 #define NOMINAL_CURRENT_PHASE_RMS                       3.4f
@@ -130,15 +130,15 @@ extern "C" {
 /* Locking Current (unit : amps)*/
 #define LOCK_CURRENT                                    1.0f
  
-/** Field Weakening Control Parameters */  
-/* Voltage circle limit for field weakening*/
+/** Flux Weakening Control Parameters */  
+/* Voltage circle limit for Flux Weakening*/
 #define FW_VOLATGE_MARGIN_FACTOR                        0.90f
-/* Maximum D-axis current Reference for Field Weakening (unit : amps)*/
+/* Maximum D-axis current Reference for Flux Weakening (unit : amps)*/
 #define MAX_FW_NEGATIVE_ID_REF                          -(NOMINAL_CURRENT_PEAK)
-/* Voltage feedback field weakening controller parameters */
+/* Voltage feedback Flux Weakening controller parameters */
 #define FW_PTERM                                        SPEEDCNTR_PTERM*30 
 #define FW_ITERM                                        SPEEDCNTR_ITERM*30
-/* Field Weakening Id reference filter cut off frequency (unit : Hz)*/
+/* Flux Weakening Id reference filter cut off frequency (unit : Hz)*/
 #define FW_ID_FILTER_CUTOFF_FREQUENCY                   100.0f
     
 // </editor-fold>

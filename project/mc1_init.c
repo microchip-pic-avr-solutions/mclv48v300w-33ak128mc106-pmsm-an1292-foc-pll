@@ -217,12 +217,8 @@ void MCAPP_MC1ControlSchemeConfig(MC1APP_DATA_T *pMCData)
     /* Initialize Estimator Interface */
     pControlScheme->estimatorInterface.pEstimPLL  = &pControlScheme->estimator;
     
-#ifdef  FLUX_WEAKENING_TYPE
-    pControlScheme->idRefGen.type = 1;
-#else
-    pControlScheme->idRefGen.type = 0;
-#endif   
-    /* Initialize field weakening parameters */ 
+    /* Initialize flux weakening parameters */
+    pControlScheme->idRefGen.variant = FLUX_WEAKENING_VARIANT;
     pControlScheme->idRefGen.feedBackFW.pCtrlParam  = &pControlScheme->ctrlParam;
     pControlScheme->idRefGen.feedBackFW.pVdq       =  &pControlScheme->vdq;
     pControlScheme->idRefGen.feedBackFW.pMotor      = pMCData->pMotor;

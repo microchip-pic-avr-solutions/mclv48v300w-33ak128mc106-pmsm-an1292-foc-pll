@@ -14,7 +14,7 @@ All the motors are tested under no load conditions. To achieve optimal performan
 - Supports Dual Shunt(phase shunts) and Single Shunt(bus shunt) current measurement schemes
 - Integrates two variants of flux weakening,
     1. PI controller based on voltage circle limit (less dependent on motor parameters)
-    2. PMSM steady state equation-based feed-forward control (Id reference computed from motor parameters); can be used when motor parameters are accurately known
+    2. Reference speed feed-forward control based on PMSM steady state equations(Id reference is computed from motor parameters); can be used when motor parameters are accurately known
 - Supports an additional motor; 24V Leadshine Servo Motor [(ELVM6020V24FH-B25-HD)](https://www.leadshine.com/product-detail/ELVM6020V24FH-B25-HD.html)
 - DC bus voltage compensation
 - Assigned functions of push buttons and potentiometer in the firmware:

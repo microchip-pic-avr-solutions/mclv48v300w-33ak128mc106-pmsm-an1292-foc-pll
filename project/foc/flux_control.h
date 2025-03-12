@@ -5,7 +5,7 @@
  * @brief This header file lists data type definitions and interface functions 
  * of the flux weakening module
  *
- * Component: FIELD WEAKENING
+ * Component: FLUX WEAKENING
  *
  */
 // </editor-fold>
@@ -75,7 +75,7 @@ typedef struct
         IdRefFilt,      /* Filtered Id Current reference */ 
         IdRefFiltConst, /* Filter constant for Id */
         IdRefMin,       /* Lower limit on IdRef */        
-        voltageLimitFW, /* Effective voltage limit for field weakening */
+        voltageLimitFW, /* Effective voltage limit for flux weakening */
         fwNum,          /* numerator part of the flux weakening equation */
         fwDen;          /* denominator part of the flux weakening equation */
 
@@ -114,7 +114,7 @@ typedef struct
           iqMax;
  
     /* Feed-forward or Feedback based flux weakening */
-    uint8_t type;  
+    uint8_t variant;  
     
     MCAPP_FLUX_WEAKENING_VOLT_FB_T 
         feedBackFW;
