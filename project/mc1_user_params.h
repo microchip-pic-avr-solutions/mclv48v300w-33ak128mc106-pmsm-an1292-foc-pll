@@ -76,8 +76,8 @@ extern "C" {
  * Undefine SINGLE_SHUNT for dual shunt current measurement scheme(IA and IB) */
 #undef SINGLE_SHUNT
 /*Flux Weakening Variant : 0 = Disable Flux Weakening
-                        1 = PI Controller for limiting voltage circle using voltage feedback
-                        2 = Reference speed feed-forward based on PMSM steady state equation */   
+                           1 = PI Controller for limiting voltage circle using voltage feedback
+                           2 = Reference speed feed-forward based on PMSM steady state equation */   
 #define FLUX_WEAKENING_VARIANT  1
 /*Motor Selection : 1 = Hurst DMA0204024B101(AC300022: Hurst300 or Long Hurst)
                     2 = Hurst DMB0224C10002(AC300020: Hurst075 or Short Hurst)
