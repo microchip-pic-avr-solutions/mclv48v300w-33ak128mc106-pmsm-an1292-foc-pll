@@ -74,7 +74,7 @@ extern "C" {
 #define INTERNAL_OPAMP_CONFIG
 /* Define SINGLE_SHUNT for single shunt current measurement scheme(IBUS)
  * Undefine SINGLE_SHUNT for dual shunt current measurement scheme(IA and IB) */
-#define SINGLE_SHUNT
+#undef SINGLE_SHUNT
 /*Flux Weakening Variant : 0 = Disable Flux Weakening
                         1 = PI Controller for limiting voltage circle using voltage feedback
                         2 = Reference speed feed-forward based on PMSM steady state equation */   
